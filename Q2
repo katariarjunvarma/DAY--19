@@ -1,0 +1,26 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+    std::string fileName = "input.txt";  // Specify the file to read
+
+    // Open the file for reading
+    std::ifstream inFile(fileName);
+    if (!inFile) {
+        std::cerr << "Error opening file: " << fileName << std::endl;
+        return 1;
+    }
+
+    std::string line;
+    std::cout << "Contents of the file '" << fileName << "':" << std::endl;
+
+    // Read the file line by line and print each line to the terminal
+    while (std::getline(inFile, line)) {
+        std::cout << line << std::endl;
+    }
+
+    inFile.close();  // Close the file after reading
+
+    return 0;
+}
