@@ -1,0 +1,42 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+    std::string fileName = "details.txt";
+
+    // Writing details to the file
+    std::ofstream outFile(fileName);  // Open file for writing
+    if (!outFile) {
+        std::cerr << "Error opening file for writing!" << std::endl;
+        return 1;
+    }
+
+    // Writing details
+    outFile << "Name: Katari Arjun Varma\n";
+    outFile << "Email: arjunvarma5110@gmail.com\n";
+    outFile << "Course: Computer Science and Engineering\n";
+    outFile << "University: Lovely Professional University\n";
+    outFile << "Volunteer: CARECLUB Foundation\n";
+    
+    outFile.close();  // Close file after writing
+
+    // Reading details from the file
+    std::ifstream inFile(fileName);  // Open file for reading
+    if (!inFile) {
+        std::cerr << "Error opening file for reading!" << std::endl;
+        return 1;
+    }
+
+    std::string line;
+    std::cout << "Details from the file:" << std::endl;
+
+    // Reading the file line by line
+    while (std::getline(inFile, line)) {
+        std::cout << line << std::endl;
+    }
+
+    inFile.close();  // Close file after reading
+
+    return 0;
+}
